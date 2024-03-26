@@ -3,7 +3,7 @@ const review_model = require('../models/review_models');
 // Index page controller
 function review_index(req, res) {
     review_model.getReviews((queryResult) => {
-        console.log(queryResult);
+        //console.log(queryResult);
         res.render('index', { reviews: queryResult });
     });
 };

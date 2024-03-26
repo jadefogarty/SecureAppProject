@@ -1,5 +1,5 @@
 # Project Dependencies
-1. Node.js (v14.18.1)
+1. Node.js (v20.10.0)
 2. npm (v6.14.11)
 3. sqlite3 (v5.1.7"8)
 
@@ -27,3 +27,24 @@ http://localhost:4567
 
 # References / Guides used for this project
 1. https://devsday.ru/blog/details/65389
+
+
+CREATE TABLE Reviews(
+book_title TEXT NOT NULL,
+book_author TEXT NOT NULL,
+rating INT NOT NULL,
+comments TEXT NOT NULL,
+review_id INTEGER PRIMARY KEY AUTOINCREMENT);
+INSERT INTO Reviews (book_title, book_author, rating, comments, review_id)
+VALUES ('Little Women', 'Louisa May Alcott', '9', 'Great book with well-written characters', '1'),
+('The Great Gatsby', 'F. Scott Fitzgerald', '8', 'Good story set in the 1920s', '2'),
+('The Picture of Dorian Gray', 'Oscar Wilde', '8', 'Good story with an interesting character', '3');
+
+CREATE TABLE Users (
+username TEXT UNIQUE NOT NULL,
+password TEXT NOT NULL,
+role TEXT NOT NULL,
+access_token TEXT,
+user_id INTEGER PRIMARY KEY AUTOINCREMENT);
+INSERT INTO Users (username, password, role, user_id, access_token)
+VALUES ('admin', 'password', 'admin', '1', ''), ('test1', 'pass', 'user', '2', '');
