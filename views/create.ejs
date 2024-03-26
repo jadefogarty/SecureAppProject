@@ -1,0 +1,17 @@
+<div class="container">
+    <h2 class="mt-5 mb-3">Create a new review</h2>
+    <form action="/review/create" method="post">
+        <div class="mb-3">
+            <label for="inputBookTitle">Book Title:</label>
+            <input autofocus type="text" class="form-control shadow-none mb-3" id="inputBookTitle" name="BookTitle">
+            <label for="inputBookAuthor">Book Author:</label>
+            <input autofocus type="text" class="form-control shadow-none mb-3" id="inputBookAuthor" name="BookAuthor">
+            <label for="inputRating">Rating (1-10):</label>
+            <input autofocus type="number" class="form-control shadow-none mb-3" id="inputRating" name="Rating" min="1" max="10">
+            <label for="inputComments">Comments:</label>
+            <input autofocus type="text" class="form-control shadow-none mb-3" id="inputComments" name="Comments">
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+        <a class="btn btn-outline-dark cancel" href="/">Cancel</a>
+    </form>
+</div>

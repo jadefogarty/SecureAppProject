@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> Home </title>
+        <!-- my css -->
+		<link rel="stylesheet" href="/css/styles.css">
+        <!-- bootstrap css -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	</head>
+	<body>
+
+
+        <h2 class="mt-5 mb-3">Reviews</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Review</th>
+        <th scope="col">Book Title</th>
+        <th class="d-print-none">
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+        <% for (const review of reviews) { %>
+            <tr>
+              <td><%= review.review_id %></td>
+              <td class="status"><%= review.book_title %></td>
+              <td class="d-print-none">
+                <a class="btn btn-sm btn-warning" href="/review/update/<%= review.review_id %>">Update</a>
+                <a class="btn btn-sm btn-danger" href="/review/delete/<%= review.review_id %>">Delete</a>
+              </td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="/review/create">Add Review</a>
+
+	</body>
+</html>

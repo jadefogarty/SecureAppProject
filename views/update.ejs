@@ -1,0 +1,17 @@
+<div class="container">
+    <h2 class="mt-5 mb-3">Update review</h2>
+    <form action="/review/update/<%= review.review_id %>" method="post">
+      <div class="mb-3">
+        <label for="inputBookTitle">Book Title:</label>
+            <input autofocus type="text" class="form-control shadow-none mb-3" id="inputBookTitle" name="BookTitle" value="<%= review.book_title %>">
+            <label for="inputBookAuthor">Book Author:</label>
+            <input autofocus type="text" class="form-control shadow-none mb-3" id="inputBookAuthor" name="BookAuthor" value="<%= review.book_author %>">
+            <label for="inputRating">Rating (1-10):</label>
+            <input autofocus type="number" class="form-control shadow-none mb-3" id="inputRating" name="Rating" min="1" max="10" value="<%= review.rating %>">
+            <label for="inputComments">Comments:</label>
+            <input autofocus type="text" class="form-control shadow-none mb-3" id="inputComments" name="Comments" value="<%= review.comments %>">
+      </div>        
+      <button type="submit" class="btn btn-warning">Update</button>
+      <a class="btn btn-outline-dark cancel" href="/">Cancel</a>
+    </form>
+  </div>
