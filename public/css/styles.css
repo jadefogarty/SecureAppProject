@@ -1,0 +1,163 @@
+body {
+    background-color: #121212;
+    overflow-x: hidden; /* hide a horizontal scrollbar */
+}
+p, h1, h2, h3, h4, h5, h6 {
+    color: #B3B3B3;
+}
+
+#wrapper{
+    background-color: #121212;
+}
+#form-wrapper{
+    background-color: #121212;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 7;
+    flex-shrink: 0; /*wont shrink as page shrinks*/
+    background-color: #121212;
+    color: #B3B3B3;
+    flex-direction: row;
+    background-color: #121212;
+    border-color: #535353;
+    border-style: inset;
+}
+.header-img{
+    display: flex;
+    flex-grow: 2;
+    justify-content: center;
+    height: 130px;
+    width: 130px;
+}
+.header-text{
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+    align-items: center;
+}
+.header-title {
+    display: flex;
+    flex-grow: 5;
+    justify-content: space-around;
+} 
+
+.content {
+    margin-top: 150px;
+}
+
+.main-content-title{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.title-col{
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+#title-btn{
+    background-color: #48B2FF;
+    border: 2px solid #48B2FF;
+    color: #121212;
+    padding: 9px;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+#title-btn:hover{
+    background-color: #121212;
+    color: #48B2FF;
+}
+
+.card-deck{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#card {
+    display: flex;
+    background-color: #121212;
+    border-color: #535353;
+    border-style: outset;
+    border-radius: 4px;
+    margin: 15px;
+    width: 35%;
+}
+
+#update-btn {
+    background-color: #121212;
+    border: 2px solid #48B2FF;
+    color: #48B2FF;
+}
+#update-btn:hover {
+    background-color: #48B2FF;
+    color: #121212;
+}
+
+#delete-btn {
+    background-color: #121212;
+    border: 2px solid #48B2FF;
+    color: #48B2FF;
+}
+#delete-btn:hover {
+    background-color: #48B2FF;
+    color: #121212;
+}
+
+label {
+    color: #48B2FF;
+    margin: 6px;
+}
+
+#inputBookTitle, #inputBookAuthor, #inputRating, #inputComments {
+    background-color: #212121;
+    color: #B3B3B3;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.form-content {
+    margin-top: 180px;
+    display: flex;
+    justify-content: space-around;
+}
+#form{
+    width: 60%;
+    border-color: #535353;
+    border-style: outset;
+    border-radius: 4px;
+    padding: 30px;
+}
+
+#add-btn {
+    background-color: #48B2FF;
+    border: 2px solid #48B2FF;
+    color: #121212;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+#add-btn:hover {
+    background-color: #121212;
+    color: #48B2FF;
+}
+
+#cancel-btn {
+    background-color: #121212;
+    border: 2px solid #48B2FF;
+    color: #48B2FF;
+}
+#cancel-btn:hover {
+    background-color: #48B2FF;
+    color: #121212;
+}
