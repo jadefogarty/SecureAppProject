@@ -15,11 +15,7 @@ app.set('views', path.join(__dirname, 'views'));
 // To recognize the incoming request object as strings or arrays
 app.use (express.urlencoded ({extended: true}));
 
-
 app.use(review_routes);
-
-
-
 
 //runs server on port 4567
 app.listen(PORT, () => {
