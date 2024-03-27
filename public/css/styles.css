@@ -6,7 +6,12 @@ p, h1, h2, h3, h4, h5, h6 {
     color: #B3B3B3;
 }
 
+#error-wrapper{
+    height: 100vh;
+    background-color: #121212;
+}
 #wrapper{
+    height: 100vh;
     background-color: #121212;
 }
 #form-wrapper{
@@ -224,4 +229,8 @@ label {
 #cancel-btn:hover {
     background-color: #48B2FF;
     color: #121212;
+}
+.message{
+    color: #48B2FF;
+
 }

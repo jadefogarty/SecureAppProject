@@ -79,74 +79,42 @@ function user_signup_post(req, res) {
 //     }
 //    }
 
-// Create review page controllers
-// GET
 function user_login_get(req, res) {
     res.render('login');
 };
 
-// POST
 async function user_login_post(req, res, next) {
     //console.log(req.body)
     const username = req.body.Username;
     const password = req.body.Password;
-    // const role = req.body.Role;
-    const user =  await user_model.getUser(username);
+    const user = await user_model.getUser(username);
     console.log(user)
-    // if (!user) return next(new Error('Username does not exist'));
-    // let validPassword;
-    // if (password === user.password) {
-    //     validPassword = true;
-    // }
-    // else {
-    //     validPassword = false;
-    // }
-    // if (!validPassword) return next(new Error('Password is not correct'))
-    // const accessToken = jwt.sign({ username: username }, 'TOKEN', {
-    //     expiresIn: "1d"
-    // });
-    // await user_model.getAndUpdateUserToken(username, accessToken, (result) => {
-    //     console.log(result);
-    //     //res.redirect('/');
-    // });
+    if (!user) {
+        return next(new Error('Username does not exist'));
+    }
 
-    // user_model.getUser(username, (error, user) => {
-        
-        if (!user) {
-            return next(new Error('Username does not exist'));
-        }
+    let validPassword;
+    if (password === user.password) {
+        validPassword = true;
+        console.log("password is valid")
+    } else {
+        validPassword = false;
+    }
 
-        let validPassword;
-        if (password === user.password) {
-            validPassword = true;
-            console.log("password is valid")
-        } else {
-            validPassword = false;
-        }
+    if (!validPassword) {
+        return next(new Error('Password is not correct'));
+    }
 
-        if (!validPassword) {
-            return next(new Error('Password is not correct'));
-        }
+    const accessToken = jwt.sign({ username: username }, 'TOKEN', {
+        expiresIn: "1d"
+    });
+    // Set the access token as a cookie
+    res.cookie('access_token', accessToken, {
+        httpOnly: true,
+        maxAge: 86400000,
+    });
 
-        const accessToken = jwt.sign({ username: username }, 'TOKEN', {
-            expiresIn: "1d"
-        });
-
-        // user_model.getAndUpdateUserToken(username, accessToken, (result) => {
-        //     console.log(result);
-        //     res.redirect('/');
-        // });
-
-                // Set the access token as a cookie
-                res.cookie('access_token', accessToken, { 
-                    httpOnly: true, // Cookie is only accessible via HTTP(S) and not JavaScript
-                    maxAge: 86400000, // 1 day in milliseconds
-                    // You can add other cookie options as needed
-                });
-        
-                // Redirect the user to the homepage or wherever you want
-                res.redirect('/');
-    // });
+    res.redirect('/');
 };
 
 function grantAccess(action, resource) {
@@ -155,9 +123,7 @@ function grantAccess(action, resource) {
             console.log(req.user)
             const permission = roles.can(req.user.role)[action](resource);
             if (!permission.granted) {
-                return res.status(401).json({
-                    error: "You don't have enough permission to perform this action"
-                });
+                return res.render('error', { message: "You don't have enough permission to perform this action" });
             }
             next()
         } catch (error) {
@@ -171,9 +137,7 @@ async function allowIfLoggedin(req, res, next) {
         console.log(res.locals)
         const user = res.locals.loggedInUser;
         if (!user)
-            return res.status(401).json({
-                error: "You need to be logged in to access this route"
-            });
+            return res.render('error', { message: "You need to be logged in to perform this action" });
         req.user = user;
         next();
     } catch (error) {
@@ -181,48 +145,35 @@ async function allowIfLoggedin(req, res, next) {
     };
 };
 
-// // POST
-// async function user_logout_post(req, res, next) {
-//     //console.log(req.body)
-//     const username = req.body.Username;
-//     const password = req.body.Password;
-//     // const role = req.body.Role;
-//     const user = await user_model.getUser(username);
-//     if (!user) return next(new Error('Username does not exist'));
-//     // let validPassword;
-//     // if (password === user.password) {
-//     //     validPassword = true;
-//     // }
-//     // else {
-//     //     validPassword = false;
-//     // }
-//     // if (!validPassword) return next(new Error('Password is not correct'))
-//     const accessToken = jwt.sign({ username: username }, 'INVALID-TOKEN', {
-//         expiresIn: new Date(0)
-//     });
-//     await user_model.getAndUpdateUserToken(username, accessToken, (result) => {
-//         console.log(result);
-//         //res.redirect('/');
-//     });
-// };
+async function denyAlreadyLoggedIn(req, res, next) {
+    try {
+        console.log(res.locals)
+        const user = res.locals.loggedInUser;
+        if (user)
+            return res.render('error', { message: "You are already logged in" });
+        req.user = user;
+        next();
+    } catch (error) {
+        next(error);
+    };
+};
 
 async function user_logout_get(req, res, next) {
-        const username = req.body.Username;
-        
-        // Clear the cookie by setting its expiration date to a past time
-        res.clearCookie('access_token');
-        
-        // Generate an invalid token with expiration set to the past
-        const accessToken = jwt.sign({ username: username }, 'INVALID-TOKEN', {
-            expiresIn: 0 // Set expiration time to 0 seconds
-        });
-    
-        await user_model.getAndUpdateUserToken(username, accessToken, (result) => {
-            console.log(result);
-            res.redirect('/'); // Redirect the user after logout
-        });
-    }
+    const username = req.body.Username;
 
+    // Clear the cookie by setting its expiration date to a past time
+    res.clearCookie('access_token');
+
+    // Generate an invalid token with expiration set to the past
+    const accessToken = jwt.sign({ username: username }, 'INVALID-TOKEN', {
+        expiresIn: 0 // Set expiration time to 0 seconds
+    });
+
+    await user_model.getAndUpdateUserToken(username, accessToken, (result) => {
+        console.log(result);
+        res.redirect('/');
+    });
+}
 
 
 module.exports = {
@@ -233,5 +184,6 @@ module.exports = {
     user_login_post,
     grantAccess,
     allowIfLoggedin,
+    denyAlreadyLoggedIn,
     user_logout_get
 }

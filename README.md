@@ -19,16 +19,22 @@ The following steps can be used to run the project
 2. Navigate to the projects directory using the `cd` command
 5. Run the `npm start` to start the production server
 
-Verify the application is running by navigating to your server address in
-your preferred browser.
---------
+Verify the application is running by navigating to the server address in
+the preferred browser.
 http://localhost:4567
+
+
 --------
+
 
 # References / Guides used for this project
-1. https://devsday.ru/blog/details/65389
+1. Initial database connection and setup with MVC architecture 
+    https://devsday.ru/blog/details/65389
+2. Role Based Access Control and JWT 
+    https://soshace.com/implementing-role-based-access-control-in-a-node-js-application/
 
 
+# Initial data entries for Database
 CREATE TABLE Reviews(
 book_title TEXT NOT NULL,
 book_author TEXT NOT NULL,
