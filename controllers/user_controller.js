@@ -29,6 +29,42 @@ const { roles } = require('../roles')
 //   next(error)
 //  }
 // }
+async function user_get(req, res) {
+    // try {
+    //     const username = req.query.username;
+    //     console.log(username);
+    //     const user = await user_model.getUser(username);
+    //     console.log(user);
+    //     res.render('user', { user: user });
+    // } catch (error) {
+    //     console.log(error);
+    // }
+    const requestedUsername = req.query.username;
+    const loggedInUserRole = req.user.role; // Assuming you have stored the role of the logged-in user in req.user
+
+    // Check if the logged-in user is an admin
+    if (loggedInUserRole === 'admin') {
+        // If the user is an admin, proceed to fetch and return the requested user's data
+        const user = await user_model.getUser(requestedUsername);
+        if (!user) {
+            return res.status(404).render('error', { message: "User not found" });
+        }
+        res.render('user', { user: user });
+    } else {
+        // If not an admin, allow reading own data only
+        const loggedInUsername = req.user.username;
+        if (requestedUsername !== loggedInUsername) {
+            return res.status(403).render('error', { message: "You are not authorized to access this user's data" });
+        }
+
+        const user = await user_model.getUser(requestedUsername);
+        if (!user) {
+            return res.status(404).render('error', { message: "User not found" });
+        }
+
+        res.render('user', { user: user });
+    }
+};
 
 function users_get(req, res) {
     user_model.getUsers((queryResult) => {
@@ -177,6 +213,7 @@ async function user_logout_get(req, res, next) {
 
 
 module.exports = {
+    user_get,
     users_get,
     user_signup_get,
     user_signup_post,

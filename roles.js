@@ -7,6 +7,7 @@ ac.grant("user")
  .updateOwn("review")
  .readAny("review")
  .updateAny("review")
+ .readOwn("user")
 
 
 ac.grant("admin")
@@ -17,6 +18,7 @@ ac.grant("admin")
  .readAny("user")
  .updateAny("user")
  .deleteAny("user")
+ .readAny("user")
 
 return ac;
 })();

@@ -14,6 +14,7 @@ const getUsers = (callback) => {
 // Create new user
 const createUser = (username, password, role, accessToken, callback) => {
     const sql = `INSERT INTO Users (username, password, role, access_token) VALUES ('${username}', '${password}', '${role}', '${accessToken}')`;
+    console.log(sql)
     database.appDatabase.run(sql, [], (error, row) => {
         if (error) {
             callback(error.message);
