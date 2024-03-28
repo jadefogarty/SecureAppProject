@@ -6,7 +6,12 @@ p, h1, h2, h3, h4, h5, h6 {
     color: #B3B3B3;
 }
 
+#error-wrapper{
+    height: 100vh;
+    background-color: #121212;
+}
 #wrapper{
+    height: 100vh;
     background-color: #121212;
 }
 #form-wrapper{
@@ -82,6 +87,7 @@ p, h1, h2, h3, h4, h5, h6 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 80px;
 }
 
 #card {
@@ -94,6 +100,20 @@ p, h1, h2, h3, h4, h5, h6 {
     width: 35%;
 }
 
+#home-btn{
+    background-color: #48B2FF;
+    border: 2px solid #48B2FF;
+    color: #121212;
+    padding: 9px;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+#home-btn:hover{
+    background-color: #121212;
+    color: #48B2FF;
+}
+
 #update-btn {
     background-color: #121212;
     border: 2px solid #48B2FF;
@@ -102,6 +122,55 @@ p, h1, h2, h3, h4, h5, h6 {
 #update-btn:hover {
     background-color: #48B2FF;
     color: #121212;
+}
+
+#view-users-btn{
+    background-color: #121212;
+    border: 2px solid #48B2FF;
+    color: #48B2FF;
+}
+
+#view-users-btn:hover{
+    background-color: #48B2FF;
+    color: #121212;
+}
+
+#logout-btn {
+    background-color: #121212;
+    border: 2px solid #48B2FF;
+    color: #48B2FF;
+}
+#logout-btn:hover {
+    background-color: #48B2FF;
+    color: #121212;
+}
+
+#signup-btn{
+    background-color: #48B2FF;
+    border: 2px solid #48B2FF;
+    color: #121212;
+    padding: 9px;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+#signup-btn:hover{
+    background-color: #121212;
+    color: #48B2FF;
+}
+
+#login-btn{
+    background-color: #48B2FF;
+    border: 2px solid #48B2FF;
+    color: #121212;
+    padding: 9px;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+#login-btn:hover{
+    background-color: #121212;
+    color: #48B2FF;
 }
 
 #delete-btn {
@@ -160,4 +229,8 @@ label {
 #cancel-btn:hover {
     background-color: #48B2FF;
     color: #121212;
+}
+.message{
+    color: #48B2FF;
+
 }
