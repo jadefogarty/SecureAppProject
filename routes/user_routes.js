@@ -8,10 +8,10 @@ router.get('/user',  user_controller.allowIfLoggedin, user_controller.grantAcces
 
 //GET/POST Signup Page
 router.get('/user/signup', user_controller.denyAlreadyLoggedIn, user_controller.user_signup_get);
-router.post('/user/signup', userValidator.validateUser, user_controller.user_signup_post);
+router.post('/user/signup', userValidator.validateSignup, user_controller.user_signup_post);
 //GET/POST Login Page
 router.get('/user/login', user_controller.denyAlreadyLoggedIn, user_controller.user_login_get);
-router.post('/user/login', userValidator.validateUser, user_controller.user_login_post);
+router.post('/user/login', userValidator.validateLogin, user_controller.user_login_post);
 
 router.get('/user/logout', user_controller.allowIfLoggedin, user_controller.user_logout_get);
 

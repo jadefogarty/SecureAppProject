@@ -129,7 +129,7 @@ async function user_login_post(req, res) {
     if (!errors.isEmpty()) {
       return res.render('login', { errors: errors.mapped() });
     }
-    //console.log(req.body)
+    // console.log(req.body)
     const username = req.body.Username;
     const password = req.body.Password;
     const user = await user_model.getUser(username);
