@@ -1,4 +1,4 @@
-const { check } = require('express-validator');
+const { body,  check } = require('express-validator');
 
 // Export function validateReview
 exports.validateReview = [
