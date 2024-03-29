@@ -47,10 +47,19 @@
                         <div class="mb-3">
                             <label for="inputUsername">Username:</label>
                             <input autofocus type="text" class="form-control shadow-none mb-3" id="inputUsername" name="Username">
+                            <% if (errors.Username) { %>
+                                <div class="text-danger mb-3"><%= errors.Username.msg %></div>
+                            <% } %>
                             <label for="inputPassword">Password:</label>
                             <input autofocus type="text" class="form-control shadow-none mb-3" id="inputPassword" name="Password">
+                            <% if (errors.Password) { %>
+                                <div class="text-danger mb-3"><%= errors.Password.msg %></div>
+                            <% } %>
                             <label for="inputRole">Role (user / admin):</label>
                             <input autofocus type="text" class="form-control shadow-none mb-3" id="inputRole" name="Role">
+                            <% if (errors.Role) { %>
+                            <div class="text-danger mb-3"><%= errors.Role.msg %></div>
+                            <% } %>
                         </div>
                         <button type="submit" class="btn" id="add-btn">Signup</button>
                         <a class="btn" id="cancel-btn" href="/">Cancel</a>

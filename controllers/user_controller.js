@@ -1,6 +1,7 @@
 const user_model = require('../models/user_models');
 const jwt = require('jsonwebtoken');
 const { roles } = require('../roles')
+const { validationResult } = require('express-validator');
 // const bcrypt = require('bcrypt');
 
 // async function hashPassword(password) {
@@ -76,11 +77,15 @@ function users_get(req, res) {
 // Create review page controllers
 // GET
 function user_signup_get(req, res) {
-    res.render('signup');
+    res.render('signup', { errors: {} });
 };
 
 // POST
 function user_signup_post(req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.render('signup', { errors: errors.mapped() });
+    }
     //console.log(req.body)
     const username = req.body.Username;
     const password = req.body.Password;
@@ -116,17 +121,21 @@ function user_signup_post(req, res) {
 //    }
 
 function user_login_get(req, res) {
-    res.render('login');
+    res.render('login', { errors: {} });
 };
 
-async function user_login_post(req, res, next) {
+async function user_login_post(req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.render('login', { errors: errors.mapped() });
+    }
     //console.log(req.body)
     const username = req.body.Username;
     const password = req.body.Password;
     const user = await user_model.getUser(username);
     console.log(user)
     if (!user) {
-        return next(new Error('Username does not exist'));
+        return res.render('error', { message: "Username does not exist" });
     }
 
     let validPassword;
@@ -138,7 +147,7 @@ async function user_login_post(req, res, next) {
     }
 
     if (!validPassword) {
-        return next(new Error('Password is not correct'));
+        return res.render('error', { message: "Incorrect Password" });
     }
 
     const accessToken = jwt.sign({ username: username }, 'TOKEN', {
