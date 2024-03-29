@@ -48,15 +48,24 @@
                             <label for="inputBookTitle">Book Title:</label>
                             <input autofocus type="text" class="form-control shadow-none mb-3" id="inputBookTitle" name="BookTitle"
                                 value="<%= review.book_title %>">
+                                <% if (errors.BookTitle) { %>
+                                    <div class="text-danger mb-3"><%= errors.BookTitle.msg %></div>
+                                <% } %>
                             <label for="inputBookAuthor">Book Author:</label>
                             <input autofocus type="text" class="form-control shadow-none mb-3" id="inputBookAuthor" name="BookAuthor"
                                 value="<%= review.book_author %>">
+                                <% if (errors.BookAuthor) { %>
+                                    <div class="text-danger mb-3"><%= errors.BookAuthor.msg %></div>
+                                <% } %>
                             <label for="inputRating">Rating (1-10):</label>
                             <input autofocus type="number" class="form-control shadow-none mb-3" id="inputRating" name="Rating" min="1"
                                 max="10" value="<%= review.rating %>">
                             <label for="inputComments">Comments:</label>
                             <input autofocus type="text" class="form-control shadow-none mb-3" id="inputComments" name="Comments"
                                 value="<%= review.comments %>">
+                                <% if (errors.Comments) { %>
+                                    <div class="text-danger mb-3"><%= errors.Comments.msg %></div>
+                                <% } %>
                         </div>
                         <button type="submit" class="btn" id="update-btn">Update</button>
                         <a class="btn" id="cancel-btn" href="/">Cancel</a>
