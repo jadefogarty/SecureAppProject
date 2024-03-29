@@ -6,6 +6,7 @@ const sqlite3 = require('sqlite3');
 const jwt = require('jsonwebtoken');
 const user_model = require('./models/user_models');
 const cookieParser = require('cookie-parser'); 
+const logger = require('./logger');
 
 const review_routes = require('./routes/review_routes');
 const user_routes = require('./routes/user_routes');
@@ -24,18 +25,21 @@ app.use(cookieParser());
 
 // Middleware to verify JWT token
 app.use(async (req, res, next) => {
-    console.log(req.cookies);
+    //console.log(req.cookies);
     if (req.cookies.access_token) {
         const accessToken = req.cookies.access_token;
         try {
             const { username, exp } = await jwt.verify(accessToken, 'TOKEN');
             // Check if token has expired
             if (exp < Date.now().valueOf() / 1000) {
+                logger.error('Error verifying token.', error);
                 return res.status(401).json({ error: "JWT token has expired, please login to obtain a new one" });
             }
+            logger.info('Valid access token, token verified.');
             res.locals.loggedInUser = await user_model.getUser(username);
             next();
         } catch (error) {
+            logger.error('Error verifying token.', error);
             return res.status(401).json({ error: "Invalid token" });
         }
     } else {
@@ -48,6 +52,7 @@ app.use(user_routes);
 
 //runs server on port 4567
 app.listen(PORT, () => {
+    logger.info('Server is running.');
     console.log('Server running on port ' + PORT);
 });
 
