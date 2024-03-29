@@ -1,4 +1,5 @@
 const review_model = require('../models/review_models');
+const { validationResult } = require('express-validator');
 
 // Index page controller
 function review_index(req, res) {
@@ -11,11 +12,15 @@ function review_index(req, res) {
 // Create review page controllers
 // GET
 function review_create_get(req, res) {
-    res.render('create');
+    res.render('create', { errors: {} });
 };
 
 // POST
 function review_create_post(req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.render('create', { errors: errors.mapped() });
+    }
     //console.log(req.body)
     const bookTitle = req.body.BookTitle;
     const bookAuthor = req.body.BookAuthor;
@@ -32,28 +37,32 @@ function review_create_post(req, res) {
 const review_delete_get = (req, res) => {
     const id = req.params.id;
     review_model.getReview(id, (result) => {
-      console.log(result);
-      res.render('delete', { review: result });
+        console.log(result);
+        res.render('delete', { review: result });
     });
-  };
-  // POST
-  const review_delete_post = (req, res) => {
+};
+// POST
+const review_delete_post = (req, res) => {
     const id = req.params.id;
     review_model.deleteReview(id, () => {
         res.redirect('/');
     });
-  };
-  
-  // Update review page controllers
-  // GET
-  const review_update_get = (req, res) => {
+};
+
+// Update review page controllers
+// GET
+const review_update_get = (req, res) => {
     const id = req.params.id;
     review_model.getReview(id, (result) => {
-        res.render('update', { review: result });
+        res.render('update', { review: result, errors: {} });
     });
-  };
-  // POST
-  const review_update_post = (req, res) => {
+};
+// POST
+const review_update_post = (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.render('update', { review: req.body, errors: errors.mapped() });
+    }
     const bookTitle = req.body.BookTitle;
     const bookAuthor = req.body.BookAuthor;
     const rating = req.body.Rating;
@@ -62,8 +71,8 @@ const review_delete_get = (req, res) => {
     review_model.updateReview(bookTitle, bookAuthor, rating, comments, id, () => {
         res.redirect('/');
     });
-  };
-  
+};
+
 // Export controllers
 module.exports = {
     review_index,

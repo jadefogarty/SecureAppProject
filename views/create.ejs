@@ -53,6 +53,9 @@
                             <input autofocus type="number" class="form-control shadow-none mb-3" id="inputRating" name="Rating" min="1" max="10">
                             <label for="inputComments">Comments:</label>
                             <input autofocus type="text" class="form-control shadow-none mb-3" id="inputComments" name="Comments">
+                            <% if (errors.Review) { %>
+                                <div class="text-danger mb-3"><%= errors.Review.msg %></div>
+                            <% } %>
                         </div>
                         <button type="submit" class="btn" id="add-btn">Add</button>
                         <a class="btn" id="cancel-btn" href="/">Cancel</a>
