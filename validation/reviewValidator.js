@@ -13,4 +13,8 @@ exports.validateReview = [
 check('Comments')
   .isLength({ min: 2, max: 120 })
   .withMessage('Field must be between 2 and 120 characters'),
+
+  body('BookTitle').trim().escape(),
+  body('BookAuthor').trim().escape(),
+  body('Comments').trim().escape()
 ];

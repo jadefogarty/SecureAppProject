@@ -1,4 +1,4 @@
-const { check } = require('express-validator');
+const { body, check } = require('express-validator');
 
 // Export function validateUser
 exports.validateSignup = [
@@ -12,7 +12,11 @@ exports.validateSignup = [
 
   check('Role')
     .isIn(['user', 'admin'])
-    .withMessage('Role must be either "user" or "admin"')
+    .withMessage('Role must be either "user" or "admin"'),
+
+    body('Username').trim().escape(),
+    body('Password').trim().escape(),
+    body('Role').trim().escape()
 ];
 
 exports.validateLogin = [
@@ -24,4 +28,6 @@ exports.validateLogin = [
     .isLength({ min: 4 })
     .withMessage('Password must be at least 4 characters'),
 
+    body('Username').trim().escape(),
+    body('Password').trim().escape(),
 ];
