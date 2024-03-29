@@ -19,3 +19,81 @@
 {"level":"info","message":"Server is running."}
 {"level":"info","message":"Database created"}
 {"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"User is already logged in"}
+{"level":"info","message":"Signup page rendered"}
+{"level":"info","message":"Signup field(s) passed validation"}
+{"level":"info","message":"Access token assigned to user"}
+{"level":"info","message":"New User created in table."}
+{"level":"info","message":"User Signup successful"}
+{"level":"info","message":"Reviews data got from Review table"}
+{"level":"info","message":"Users data successfully got. Render Home page"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"User is already logged in"}
+{"level":"info","message":"Signup page rendered"}
+{"level":"info","message":"Signup field(s) passed validation"}
+{"level":"info","message":"Access token assigned to user"}
+{"level":"info","message":"New User created in table."}
+{"level":"info","message":"User Signup successful"}
+{"level":"info","message":"Reviews data got from Review table"}
+{"level":"info","message":"Users data successfully got. Render Home page"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Reviews data got from Review table"}
+{"level":"info","message":"Users data successfully got. Render Home page"}
+{"level":"info","message":"User is already logged in"}
+{"level":"info","message":"Signup page rendered"}
+{"level":"info","message":"Signup field(s) passed validation"}
+{"level":"info","message":"Access token assigned to user"}
+{"__augmented":true,"code":"SQLITE_CONSTRAINT","errno":19,"level":"error","message":"Error creating new User: SQLITE_CONSTRAINT: UNIQUE constraint failed: Users.username","stack":"Error: SQLITE_CONSTRAINT: UNIQUE constraint failed: Users.username\n--> in Statement#run([], [Function: replacement])\n    at Database.<anonymous> (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\node_modules\\sqlite3\\lib\\sqlite3.js:76:19)\n    at Database.<anonymous> (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\node_modules\\sqlite3\\lib\\sqlite3.js:20:19)\n    at Object.createUser (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\models\\user_models.js:21:26)\n    at user_signup_post (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\controllers\\user_controller.js:70:16)\n    at Layer.handle [as handle_request] (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at middleware (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\node_modules\\express-validator\\src\\middlewares\\check.js:16:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"}
+{"level":"info","message":"Server is running."}
+{"level":"info","message":"Database created"}
+{"level":"info","message":"Server connected to database"}
+{"level":"info","message":"Reviews data got from Review table"}
+{"level":"info","message":"Users data successfully got. Render Home page"}
+{"level":"info","message":"User is already logged in"}
+{"level":"info","message":"Signup page rendered"}
+{"level":"info","message":"Signup field(s) passed validation"}
+{"level":"info","message":"Access token assigned to user"}
+{"level":"info","message":"New User created in table."}
+{"level":"info","message":"User Signup successful"}
+{"level":"info","message":"Reviews data got from Review table"}
+{"level":"info","message":"Users data successfully got. Render Home page"}
