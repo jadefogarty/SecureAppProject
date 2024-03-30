@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +23,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.42.1",
+    "@types/node": "^20.11.30",
     "jest": "^29.7.0",
     "jest-playwright-preset": "^4.0.0"
   },

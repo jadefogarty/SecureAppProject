@@ -21,7 +21,7 @@ const createUser = (username, password, role, accessToken, callback) => {
     database.appDatabase.run(sql, [], (error, row) => {
         if (error) {
             logger.error('Error creating new User:', error);
-            callback(error.message);
+            return callback(error.message);
         }
         logger.info('New User created in table.');
         const successMessage = "The user was entered successfully"

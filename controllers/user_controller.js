@@ -81,6 +81,7 @@ function user_login_get(req, res) {
 };
 
 async function user_login_post(req, res) {
+    const errors = validationResult(req);
     if (!errors.isEmpty()) {
         logger.info('Login field(s) failed validation');
         return res.render('login', { errors: errors.mapped() });
@@ -92,7 +93,7 @@ async function user_login_post(req, res) {
     const user = await user_model.getUser(username);
     //console.log(user)
     if (!user) {
-        logger.error('Error finding username:', error);
+        logger.error('Error finding username');
         return res.render('error', { message: "Username does not exist" });
     }
 
@@ -107,7 +108,7 @@ async function user_login_post(req, res) {
     }
 
     if (!validPassword) {
-        logger.error('Error incorrect password', error);
+        logger.error('Error incorrect password');
         return res.render('error', { message: "Incorrect Password" });
     }
 
