@@ -78,7 +78,7 @@ async function user_login_post(req, res, next) {
     }
 
     
-    res.redirect('/');
+    res.redirect('/user?username=' + username);
 } catch (error){
     res.render('error', {user: req.body.Username})
 }
