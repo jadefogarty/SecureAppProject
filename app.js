@@ -1,4 +1,5 @@
 const express = require('express');
+const helmet = require('helmet');
 const app = express();
 const PORT = 4567;
 const path = require('path');
@@ -23,6 +24,16 @@ app.use (express.urlencoded ({extended: true}));
 // Use cookie-parser middleware
 app.use(cookieParser());
 
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'"],
+        styleSrc: ["'self'", 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'],
+        fontSrc: ["'self'", 'https:'],
+        imgSrc: ["'self'"],
+        objectSrc: ["'none'"],
+      }
+  }));
 // Middleware to verify JWT token
 app.use(async (req, res, next) => {
     //console.log(req.cookies);
