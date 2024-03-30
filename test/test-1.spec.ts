@@ -36,6 +36,7 @@ test('user logs in with valid credentials to an admin account', async ({ page })
   await page.getByLabel('Password:').click();
   await page.getByLabel('Password:').fill('password');
   await page.getByRole('button', { name: 'Login' }).click();
+  expect(page.getByText("Hi")).toContainText("admin");
 });
 
 test('logged in user now elevated permissions', async ({ page }) => {
@@ -50,6 +51,8 @@ test('creating a review', async ({ page }) => {
   await page.getByLabel('Password:').click();
   await page.getByLabel('Password:').fill('password');
   await page.getByRole('button', { name: 'Login' }).click();
+  expect(page.getByText("Hi")).toContainText("admin");
+  await page.getByRole('link', { name: 'Return to Home page' }).click();
 
   await page.getByRole('link', { name: 'Add Review' }).click();
   await page.getByLabel('Book Author:').click();
@@ -68,6 +71,8 @@ test('updating a review', async ({ page }) => {
   await page.getByLabel('Password:').click();
   await page.getByLabel('Password:').fill('password');
   await page.getByRole('button', { name: 'Login' }).click();
+  expect(page.getByText("Hi")).toContainText("admin");
+  await page.getByRole('link', { name: 'Return to Home page' }).click();
 
   await page.getByRole('link', { name: 'Update' }).first().click();
   await page.getByLabel('Book Title:').click();
@@ -82,6 +87,8 @@ test('deleting a review', async ({ page }) => {
   await page.getByLabel('Password:').click();
   await page.getByLabel('Password:').fill('password');
   await page.getByRole('button', { name: 'Login' }).click();
+  expect(page.getByText("Hi")).toContainText("admin");
+  await page.getByRole('link', { name: 'Return to Home page' }).click();
 
   await page.getByRole('link', { name: 'Delete' }).first().click();
   await page.getByRole('button', { name: 'Delete' }).click();
@@ -94,6 +101,8 @@ test('user already logged in, cannot access signup and login features', async ({
   await page.getByLabel('Password:').click();
   await page.getByLabel('Password:').fill('password');
   await page.getByRole('button', { name: 'Login' }).click();
+  expect(page.getByText("Hi")).toContainText("admin");
+  await page.getByRole('link', { name: 'Return to Home page' }).click();
 
   await page.getByRole('link', { name: 'Signup' }).click();
   await page.getByRole('link', { name: 'Return to Home page' }).click();
@@ -130,11 +139,13 @@ test('user signup with with user role', async ({ page }) => {
 
 test('user logs in with valid credentials to a user account', async ({ page }) => {
   await page.getByRole('link', { name: 'Login' }).click();
-    await page.getByLabel('Username:').click();
+  await page.getByLabel('Username:').click();
   await page.getByLabel('Username:').fill('test1');
   await page.getByLabel('Password:').click();
   await page.getByLabel('Password:').fill('pass');
   await page.getByRole('button', { name: 'Login' }).click();
+  expect(page.getByText("Hi")).toContainText("test1");
+  await page.getByRole('link', { name: 'Return to Home page' }).click();
 });
 test('user account with user role has restricted permissions', async ({ page }) => {
   await page.getByRole('link', { name: 'Login' }).click();
@@ -143,6 +154,8 @@ test('user account with user role has restricted permissions', async ({ page }) 
   await page.getByLabel('Password:').click();
   await page.getByLabel('Password:').fill('pass');
   await page.getByRole('button', { name: 'Login' }).click();
+  expect(page.getByText("Hi")).toContainText("test1");
+  await page.getByRole('link', { name: 'Return to Home page' }).click();
 
   await page.getByRole('link', { name: 'View Users' }).click();
   await page.getByRole('link', { name: 'Return to Home page' }).click();
@@ -158,6 +171,8 @@ test('user account with user role can add a review', async ({ page }) => {
   await page.getByLabel('Password:').click();
   await page.getByLabel('Password:').fill('pass');
   await page.getByRole('button', { name: 'Login' }).click();
+  expect(page.getByText("Hi")).toContainText("test1");
+  await page.getByRole('link', { name: 'Return to Home page' }).click();
   
   await page.getByRole('link', { name: 'Add Review' }).click();
   await page.getByLabel('Book Author:').click();
@@ -177,6 +192,8 @@ test('user account with user role can update a review', async ({ page }) => {
   await page.getByLabel('Password:').click();
   await page.getByLabel('Password:').fill('pass');
   await page.getByRole('button', { name: 'Login' }).click();
+  expect(page.getByText("Hi")).toContainText("test1");
+  await page.getByRole('link', { name: 'Return to Home page' }).click();
   
   await page.getByRole('link', { name: 'Update' }).first().click();
   await page.getByLabel('Comments:').click();
@@ -192,6 +209,8 @@ test('testing input validation for reviews', async ({ page }) => {
   await page.getByLabel('Password:').click();
   await page.getByLabel('Password:').fill('pass');
   await page.getByRole('button', { name: 'Login' }).click();
+  expect(page.getByText("Hi")).toContainText("test1");
+  await page.getByRole('link', { name: 'Return to Home page' }).click();
   
   await page.getByRole('link', { name: 'Add Review' }).click();
   await page.getByLabel('Book Author:').click();

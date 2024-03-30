@@ -12,7 +12,7 @@ async function user_get(req, res) {
     if (loggedInUserRole === 'admin') {
         const user = await user_model.getUser(requestedUsername);
         if (!user) {
-            logger.error('Error finding username:', error);
+            logger.error('Error finding username');
             return res.status(404).render('error', { message: "User not found" });
         }
         logger.info('Logged in user has the admin role');
@@ -123,8 +123,10 @@ async function user_login_post(req, res) {
     });
     logger.info('Access token saved to cookie');
 
+    console.log('User logged in successfully');
     logger.info('User logged in successfully');
-    res.redirect('/');
+    //res.redirect('/');
+    res.redirect('/user?username=' + username);
 };
 
 function grantAccess(action, resource) {
@@ -190,6 +192,7 @@ async function user_logout_get(req, res, next) {
     await user_model.getAndUpdateUserToken(username, accessToken, (result) => {
         //console.log(result);
         logger.info('User has no valid token, log out successful');
+        console.log("User logged out")
         res.redirect('/');
     });
 }

@@ -220,3 +220,30 @@
 {"level":"error","message":"Error user does not have enough permission"}
 {"level":"error","message":"Error finding username"}
 {"level":"error","message":"Error incorrect password"}
+{"level":"error","message":"Error user is alreadu logged in"}
+{"level":"error","message":"Error user is alreadu logged in"}
+{"level":"error","message":"Error user is alreadu logged in"}
+{"level":"error","message":"Error user is alreadu logged in"}
+{"level":"error","message":"Error user does not have enough permission"}
+{"level":"error","message":"Error user is alreadu logged in"}
+{"level":"error","message":"Error user is alreadu logged in"}
+{"level":"error","message":"Error user does not have enough permission"}
+{"level":"error","message":"Error user is not logged in"}
+{"level":"error","message":"Error user is not logged in"}
+{"level":"error","message":"Error user is not logged in"}
+{"level":"error","message":"Error user is not logged in"}
+{"level":"error","message":"Error user is not logged in"}
+{"level":"error","message":"Error user is not logged in"}
+{"level":"error","message":"Error user is not logged in"}
+{"level":"error","message":"Error user is not logged in"}
+{"level":"error","message":"Error user is not logged in"}
+{"level":"error","message":"Error user is not logged in"}
+{"level":"error","message":"Error user is alreadu logged in"}
+{"level":"error","message":"Error user is alreadu logged in"}
+{"level":"error","message":"Error user is not logged in"}
+{"__augmented":true,"code":"SQLITE_CONSTRAINT","errno":19,"level":"error","message":"Error creating new User: SQLITE_CONSTRAINT: UNIQUE constraint failed: Users.username","stack":"Error: SQLITE_CONSTRAINT: UNIQUE constraint failed: Users.username\n--> in Statement#run([], [Function: replacement])\n    at Database.<anonymous> (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\node_modules\\sqlite3\\lib\\sqlite3.js:76:19)\n    at Database.<anonymous> (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\node_modules\\sqlite3\\lib\\sqlite3.js:20:19)\n    at Object.createUser (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\models\\user_models.js:21:26)\n    at user_signup_post (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\controllers\\user_controller.js:70:16)\n    at Layer.handle [as handle_request] (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at middleware (C:\\Users\\jadef\\OneDrive - National College of Ireland\\Documents\\college\\year 4\\semester 2\\Secure Application Programming\\book-review-app\\node_modules\\express-validator\\src\\middlewares\\check.js:16:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"}
+{"level":"error","message":"Error user does not have enough permission"}
+{"level":"error","message":"Error finding username"}
+{"level":"error","message":"Error incorrect password"}
+{"level":"error","message":"Error user does not have enough permission"}
+{"level":"error","message":"Error user is not logged in"}
