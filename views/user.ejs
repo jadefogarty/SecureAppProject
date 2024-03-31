@@ -14,25 +14,10 @@
             let username = '<%= user.username %>';
         </script>
     <script src="/js/userScript.js"></script>
-
-
 </head>
 
 <body>
-
-
-    <% let result = '' %>
-
-    <% if (user) { %>
-        <% result = `User ${user} was found.` %>
-    <% } else { %>
-        <% result = `No user with the name ${user} was not found.` %>
-    <% } %>
-    
-    <%= result %>
     <div class="container-fluid justify-content-center align-items-center" id="error-wrapper">
-
-
         <div class="row">
             <% if (user) { %>
                 <div class="message">
@@ -43,14 +28,9 @@
                 </div>
                 <% } %>
         </div>
-
         <br />
-
         </div>
-
-
     </div>
-
 </body>
 
 </html>

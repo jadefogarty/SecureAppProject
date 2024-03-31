@@ -24,7 +24,6 @@ function user_signup_get(req, res) {
     res.render('signup');
 };
 
-
 async function user_signup_post(req, res) {
     try {
         const username = req.body.Username;
@@ -32,19 +31,15 @@ async function user_signup_post(req, res) {
         const role = req.body.Role;
         const accessToken = '';
 
-        
-        // Create user and await the result
         const result = await user_model.createUser(username, password, role, accessToken);
         console.log(result);
 
-        // Get user and await the result
         const user = await user_model.getUser(username);
         console.log(user);
 
-        res.render('user', { user: user });
+        res.redirect('/user?username=' + username);
     } catch (error) {
         console.log(error);
-        // Handle error
     }
 };
 
