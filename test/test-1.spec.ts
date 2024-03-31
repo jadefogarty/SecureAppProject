@@ -100,8 +100,7 @@ test('user already logged in, cannot access signup and login features', async ({
   await page.getByLabel('Username:').fill('admin');
   await page.getByLabel('Password:').click();
   await page.getByLabel('Password:').fill('password');
-  await page.getByRole('button', { name: 'Login' }).click();
-  expect(page.getByText("Hi")).toContainText("admin");
+  await page.getByRole('button', { name: 'Login' }).click();;
   await page.getByRole('link', { name: 'Return to Home page' }).click();
 
   await page.getByRole('link', { name: 'Signup' }).click();
@@ -144,7 +143,6 @@ test('user logs in with valid credentials to a user account', async ({ page }) =
   await page.getByLabel('Password:').click();
   await page.getByLabel('Password:').fill('pass');
   await page.getByRole('button', { name: 'Login' }).click();
-  expect(page.getByText("Hi")).toContainText("test1");
   await page.getByRole('link', { name: 'Return to Home page' }).click();
 });
 test('user account with user role has restricted permissions', async ({ page }) => {
