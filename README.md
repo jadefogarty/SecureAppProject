@@ -1,10 +1,3 @@
-# Project Dependencies
-1. Node.js (v20.10.0)
-2. npm (v6.14.11)
-3. sqlite3 (v5.1.7"8)
-
---------
-
 # Install Project Dependencies
 1. Open a command line terminal window
 2. Navigate to the projects directory using the `cd` command in the terminal window
